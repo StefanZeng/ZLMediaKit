@@ -161,6 +161,7 @@ protected:
     virtual void onBeforeEncryptRtp(const char *buf, int &len, void *ctx) = 0;
     virtual void onBeforeEncryptRtcp(const char *buf, int &len, void *ctx) = 0;
     virtual void onRtcpBye() = 0;
+    virtual bool isOnlyDatachannel();
 
 protected:
     void sendRtcpRemb(uint32_t ssrc, size_t bit_rate);

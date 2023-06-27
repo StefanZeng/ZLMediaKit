@@ -280,6 +280,10 @@ void WebRtcTransport::onRtcConfigure(RtcConfigure &configure) const {
     configure.enableTWCC(!remb_bit_rate);
 }
 
+bool WebRtcTransport::isOnlyDatachannel() {
+    return _answer_sdp->isOnlyDatachannel();
+}
+
 std::string WebRtcTransport::getAnswerSdp(const string &offer) {
     try {
         //// 解析offer sdp ////
