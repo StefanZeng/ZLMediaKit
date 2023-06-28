@@ -112,6 +112,8 @@ public:
      */
     void sendRtpPacket(const char *buf, int len, bool flush, void *ctx = nullptr);
     void sendRtcpPacket(const char *buf, int len, bool flush, void *ctx = nullptr);
+    //发送sctp media data for h265
+    void SendSctpMessage(const uint8_t* data, size_t len);
 
     const EventPoller::Ptr& getPoller() const;
     Session::Ptr getSession() const;

@@ -385,6 +385,15 @@ void WebRtcTransport::sendRtcpPacket(const char *buf, int len, bool flush, void 
     }
 }
 
+void WebRtcTransport::SendSctpMessage(const uint8_t* data, size_t len) {
+#ifdef ENABLE_SCTP
+    RTC::SctpStreamParameters params;
+    //ppid 53为 webrtc binary
+    _sctp->SendSctpMessage(params, 53, data, len);
+#endif
+
+}
+
 ///////////////////////////////////////////////////////////////////////////////////
 
 void WebRtcTransportImp::onCreate() {
